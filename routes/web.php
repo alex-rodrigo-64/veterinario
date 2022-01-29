@@ -26,4 +26,5 @@ Route::get('/producto','VentaController@register')->middleware('auth');
 
 
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
+Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
 
