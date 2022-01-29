@@ -19,3 +19,7 @@ Route::get('admin', function () {
     return view('admin.dashboard');
 });
 
+//VENTAS
+Route::get('/venta/create','VentaController@create');
+Route::post('/venta/create','VentaController@store');
+
