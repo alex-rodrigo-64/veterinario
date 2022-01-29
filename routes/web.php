@@ -13,13 +13,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
-Route::get('admin', function () {
-    return view('admin.dashboard');
-});
+Auth::routes();
 
 //VENTAS
 Route::get('/venta/create','VentaController@create');
 Route::post('/venta/create','VentaController@store');
 
+Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');

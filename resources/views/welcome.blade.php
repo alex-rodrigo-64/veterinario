@@ -7,7 +7,7 @@
     <div class="col-lg-6">
       <div class="card">
         <div class="card-body text-center">
-            <a  href="http://www.stackoverflow.com/">
+            <a  href="{{ url('/recepcion') }}">
                 <button class="btn btn-primary btn-lg" style='width:300px; height:100px; background: linear-gradient(100deg, #f7f9fd, rgb(27, 255, 65));'>
                     <b class="text-dark">
                         <FONT SIZE=6>R</font><FONT SIZE=6>E</font><FONT SIZE=6>C</font><FONT SIZE=6>E</font><FONT SIZE=6>P</font><FONT SIZE=6>C</font><FONT SIZE=6>I</font><FONT SIZE=6>O</font><FONT SIZE=6>N</FONT>
