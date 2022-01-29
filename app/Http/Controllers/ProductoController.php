@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\venta;
+use App\producto;
 use Illuminate\Http\Request;
 
-use function Psy\bin;
-
-class VentaController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        return view('venta.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class VentaController extends Controller
      */
     public function create()
     {
-        return view('venta.create');
+        return view('venta.producto.producto');
     }
 
     /**
@@ -43,10 +41,10 @@ class VentaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\venta  $venta
+     * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(venta $venta)
+    public function show(producto $producto)
     {
         //
     }
@@ -54,10 +52,10 @@ class VentaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\venta  $venta
+     * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(venta $venta)
+    public function edit(producto $producto)
     {
         //
     }
@@ -66,10 +64,10 @@ class VentaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\venta  $venta
+     * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, venta $venta)
+    public function update(Request $request, producto $producto)
     {
         //
     }
@@ -77,17 +75,11 @@ class VentaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\venta  $venta
+     * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(venta $venta)
+    public function destroy(producto $producto)
     {
         //
     }
-
-    public function inventario()
-    {
-        return view('venta.inventario');
-    }
-
 }

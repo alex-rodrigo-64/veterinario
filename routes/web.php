@@ -22,8 +22,14 @@ Auth::routes();
 Route::get('/venta','VentaController@index')->middleware('auth');
 Route::get('/create','VentaController@create')->middleware('auth');
 
-Route::get('/producto','VentaController@register')->middleware('auth');
+Route::get('/inventario','VentaController@inventario')->middleware('auth');
 
+
+//CATEGORIA
+Route::get('/categoria','CategoriaController@create')->middleware('auth');
+
+//PRODUCTO
+Route::get('/producto','ProductoController@create')->middleware('auth');
 
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
 
