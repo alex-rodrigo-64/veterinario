@@ -32,4 +32,5 @@ Route::get('/categoria','CategoriaController@create')->middleware('auth');
 Route::get('/producto','ProductoController@create')->middleware('auth');
 
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
+Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
 
