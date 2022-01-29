@@ -33,7 +33,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body text-center">
-                <a  href="http://www.stackoverflow.com/">
+                <a  href="{{ url('/venta')}}">
                     <button class="btn btn-primary btn-lg" style='width:300px; height:100px; background: linear-gradient(100deg, #f7f9fd, rgb(226, 255, 62));'>
                         <b class="text-dark">
                             <FONT SIZE=6>V</font><FONT SIZE=6>E</font><FONT SIZE=6>N</font><FONT SIZE=6>T</font><FONT SIZE=6>A</font><FONT SIZE=6>S</font>

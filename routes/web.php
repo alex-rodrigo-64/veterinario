@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//VENTAS
+
+Route::get('/venta','VentaController@index')->middleware('auth');
+Route::get('/create','VentaController@create')->middleware('auth');
+
+Route::get('/producto','VentaController@register')->middleware('auth');
+
+
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
+
