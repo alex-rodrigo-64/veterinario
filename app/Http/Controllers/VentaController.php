@@ -14,7 +14,7 @@ class VentaController extends Controller
      */
     public function index()
     {
-        //
+        return view('venta.index');
     }
 
     /**
@@ -81,5 +81,9 @@ class VentaController extends Controller
     public function destroy(venta $venta)
     {
         //
+    }
+    public function register()
+    {
+        return view('venta.producto');
     }
 }
