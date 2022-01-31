@@ -31,6 +31,10 @@ Route::get('/categoria','CategoriaController@create')->middleware('auth');
 //PRODUCTO
 Route::get('/producto','ProductoController@create')->middleware('auth');
 
+//RECEPCION
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
 Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
+
+//SERVICIOS
+Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
 
