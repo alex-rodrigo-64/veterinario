@@ -38,3 +38,6 @@ Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
 //SERVICIOS
 Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
 
+//HISTORIAL
+Route::get('/historial', 'HistorialController@index')->middleware('auth');
+Route::get('/historial/{ci}/{nombre}', 'HistorialController@show')->middleware('auth');
