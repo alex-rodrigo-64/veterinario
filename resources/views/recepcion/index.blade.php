@@ -345,7 +345,7 @@
             </div>
             <div class="col-5">
 
-                <button type="submit" id="enviar" disabled class="btn btn-primary float-right">
+                <button type="button" onclick="submitDeleteSale()" id="enviar" disabled class="btn btn-primary float-right">
                     Guardar
                 </button>
 
@@ -360,4 +360,5 @@
     </div>
 </div>
 
+    
 @endsection
