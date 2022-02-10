@@ -7,52 +7,68 @@
         <div class="card-header text-center">
             <h3><FONT FACE="small fonts">NUEVA VENTA</FONT></h3>
         </div>
-        <div class="card-body">
-            <h5 class="text-center"><FONT FACE="small fonts">REGISTRO DE VENTA</FONT></h5>
-        </div>
+                 <div class="card-body">
+                     <h5 class="text-center"><FONT FACE="small fonts">REGISTRO DE VENTA</FONT></h5>
+                 </div>
         
-        <form action="{{url('/producto/registrarProducto')}}" id="idform" class="form" method="post"
+        <form action="{{url('/create')}}"  class="form" method="post"
         enctype="multipart/form-data">
 
-        {{ csrf_field()}}
+             {{ csrf_field()}}
 
+            <div class="col-md-11 mx-auto ">
 
-        <div class="col-md-11 mx-auto ">
+                <div class=" row justify-content-center">
+                    <div class="col-5">
 
-            <div class=" row justify-content-center">
-                <div class="col-5">
+                        <label for="nombre" class="control-label required">{{'Cliente'}}</label>
+                        <input type="text" class="form-control" autocomplete="off" name="nombre" id="nombre">
+                        <span id="estadoNombre"></span>
+                        
+                    </div>
+                    <div class="col-5">
 
-                    <label for="nombre" class="control-label">{{'Cliente'}}</label>
-                    <input type="text" class="form-control" autocomplete="off" name="nombrePropietario" id="nombrePropietario">
-                    <span id="estadoNombre"></span>
-                    
+                        <label for="nanombre_contactome">Fecha</label>
+                                <input class="form-control text-dark" type="datetime-local" name="fecha"
+                                    id="fecha" onblur="validarFecha()">
+                        
+                    </div>
+
                 </div>
-                <div class="col-5">
-
-                    <label for="nanombre_contactome">Fecha</label>
-                            <input class="form-control text-dark" type="datetime-local" name="fecha" value=""
-                                id="fecha" onblur="validarFecha()" readonly>
-                    
-                </div>
-
-            </div>
-            <div class=" row justify-content-center">
-                <div class="col-5">
-
-                    <label for="domicilio" class="control-label">{{'Domicilio'}}</label>
-                    <input type="text" class="form-control" autocomplete="off" name="domicilio" id="domicilio">
-                    <span id="estadoDomicilio"></span>
-                    
-                </div>
-                <div class="col-5">
-
-                    
-                </div>
-
             </div>
             <br>
-        </div>    
-    </form>
+            @include('venta.tabla.tabla')
+            <br>
+                <div class="col-md-11 mx-auto ">
+
+                    <div class=" row justify-content-center">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="email">Total</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Bs.</span>
+                                    </div>
+                                    <input type="number" require onclick="if(this.value=='0.00') this.value=''"
+                                        class="form-control" id="total" name="total">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="col-5">
+                            
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="telefono">Observaciones</label>
+                            <textarea class="form-control required" id="observaciones" name="observaciones" rows="3"></textarea>
+                     </div>
+
+                     <button type="submit" class="btn btn-success btn-lg btn-block">Guardar</button>
+
+                </div>
+                <br>    
+        </form>
         
     </div>
 </div>

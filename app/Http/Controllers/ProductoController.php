@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\categoria;
 use App\producto;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('venta.producto.producto');
+        $categoria = categoria::all();
+
+        return view('venta.producto.producto',['categoria'=>$categoria]);
     }
 
     /**
@@ -35,7 +38,20 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new producto();
+
+        $producto->nombre = request('nombre');
+        $producto->codigo_barra = request('codigoBarra');
+        $producto->marca = request('marca');
+        $producto->precio_costo = request('precio_costo');
+        $producto->precio_venta = request('precio_venta');
+        $producto->cantidad = request('cantidad');
+        $producto->id_categoria = $request->get('categoria');
+
+        $producto->save();
+
+        return view('venta.inventario');
+
     }
 
     /**

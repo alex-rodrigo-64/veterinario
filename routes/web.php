@@ -21,15 +21,19 @@ Auth::routes();
 
 Route::get('/venta','VentaController@index')->middleware('auth');
 Route::get('/create','VentaController@create')->middleware('auth');
+Route::post('/create', 'VentaController@store')->middleware('auth');
 
 Route::get('/inventario','VentaController@inventario')->middleware('auth');
 
 
-//CATEGORIA
-Route::get('/categoria','CategoriaController@create')->middleware('auth');
-
 //PRODUCTO
 Route::get('/producto','ProductoController@create')->middleware('auth');
+Route::post('/producto', 'ProductoController@store')->middleware('auth');
+
+//CATEGORIA
+Route::get('/categoria', 'CategoriaController@create')->middleware('auth');
+Route::post('/categoria', 'CategoriaController@store')->middleware('auth');
+Route::delete('/categoria/{id}', 'CategoriaController@destroy')->middleware('auth');
 
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
 Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
