@@ -52,7 +52,33 @@ class HistorialController extends Controller
      */
     public function show(Historial $historial, $ci , $nombre)
     {
-        return view('historial.view');
+        $informacion = DB::table('recepcions')
+                        ->select('*')
+                        ->where('carnet','=',$ci)
+                        ->where('nombrePaciente','=',$nombre)
+                        ->get();
+            
+        $basica = DB::table('recepcions')
+                        ->select('carnet','nombrePropietario','nombrePaciente','telefono')
+                        ->where('carnet','=',$ci)
+                        ->where('nombrePaciente','=',$nombre)
+                        ->first();
+
+        return view('historial.view',compact('informacion','basica'));
+    }
+
+    public function informe(Historial $historial, $ci , $nombre, $fecha)
+    {
+        $informacion = DB::table('recepcions')
+                        ->select('*')
+                        ->where('carnet','=',$ci)
+                        ->where('nombrePaciente','=',$nombre)
+                        ->where('fecha','=',$fecha)
+                        ->first();
+
+            
+
+        return view('historial.informe',compact('informacion'));
     }
 
     /**

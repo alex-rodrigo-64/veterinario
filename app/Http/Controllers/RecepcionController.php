@@ -53,7 +53,7 @@ class RecepcionController extends Controller
         $recepcion->temperatura = request('flexRadioDefault10');
         $recepcion->heses = request('colorHeses');
         $recepcion->mucosas = request('colorMucosa');
-        $recepcion->deshidratacion = request('desidratasion');
+        $recepcion->desidratacion = request('desidratasion');
         $recepcion->piel = request('piel');
         $recepcion->boca = request('boca');
         $recepcion->palpacion = request('palpacion');

@@ -41,3 +41,4 @@ Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
 //HISTORIAL
 Route::get('/historial', 'HistorialController@index')->middleware('auth');
 Route::get('/historial/{ci}/{nombre}', 'HistorialController@show')->middleware('auth');
+Route::get('/historial/{ci}/{nombre}/{fecha}', 'HistorialController@informe')->middleware('auth');
