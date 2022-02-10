@@ -400,7 +400,11 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <div class="copyright">
+      &copy; {{ now()->year }} {{ __('Derechos Reservados') }} <i class="tim-icons icon-heart-2"></i> {{ __('de') }}
+      <a href="https://vtdfix.com" target="_blank">{{ __('Virtu@l Tecno Dynamic') }}</a> &amp;
+      <a href="https://updivision.com" target="_blank"></a> {{ __('I-Recovery') }}.
+  </div>
   </footer>
 </div>
 <!-- ./wrapper -->

@@ -31,8 +31,8 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <span id="estadoBoton"></span>
-                        <tr id="columna-0">
+                        
+                        <tr >
                             <th>
                                 <input class="form-control" autocomplete="off" name="codigoI[]" id="codigoI" list="codigo">
                                 
