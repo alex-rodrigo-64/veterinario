@@ -35,7 +35,35 @@ class RecepcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $recepcion = new Recepcion();
+
+        $recepcion->carnet = request('ci');
+        $recepcion->nombrePropietario = request('nombrePropietario');
+        $recepcion->domicilio = request('domicilio');
+        $recepcion->telefono = request('telefono');
+        $recepcion->fecha = request('fecha');
+        $recepcion->nombrePaciente = request('nombrePaciente');
+        $recepcion->especie = request('especie');
+        $recepcion->raza = request('raza');
+        $recepcion->edad = request('edad');
+        $recepcion->peso = request('peso');
+        $recepcion->esterilizado = request('flexRadioDefault');
+        $recepcion->motivo = request('motivo');
+        $recepcion->temperatura = request('flexRadioDefault10');
+        $recepcion->heses = request('colorHeses');
+        $recepcion->mucosas = request('colorMucosa');
+        $recepcion->desidratacion = request('desidratasion');
+        $recepcion->piel = request('piel');
+        $recepcion->boca = request('boca');
+        $recepcion->palpacion = request('palpacion');
+        $recepcion->animo = request('animo');
+        $recepcion->medicamentos = request('medicamentos');
+        $recepcion->total = request('costo');
+        $recepcion->save();
+        
+        
+        return redirect('/');
     }
 
     /**

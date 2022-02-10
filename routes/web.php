@@ -35,6 +35,14 @@ Route::get('/categoria', 'CategoriaController@create')->middleware('auth');
 Route::post('/categoria', 'CategoriaController@store')->middleware('auth');
 Route::delete('/categoria/{id}', 'CategoriaController@destroy')->middleware('auth');
 
+//RECEPCION
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
 Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
 
+//SERVICIOS
+Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
+
+//HISTORIAL
+Route::get('/historial', 'HistorialController@index')->middleware('auth');
+Route::get('/historial/{ci}/{nombre}', 'HistorialController@show')->middleware('auth');
+Route::get('/historial/{ci}/{nombre}/{fecha}', 'HistorialController@informe')->middleware('auth');
