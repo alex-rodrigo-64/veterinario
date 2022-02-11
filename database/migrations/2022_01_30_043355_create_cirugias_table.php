@@ -18,10 +18,10 @@ class CreateCirugiasTable extends Migration
             $table->unsignedBigInteger('ci_cliente');
             $table->dateTime('fecha')->nullable();
 
-            $table->foreign('ci_cliente')
-            ->references('carnet')
-            ->on('recepcions')
-            ->onDelete('cascade');
+            /*    $table->foreign('ci_cliente')
+                ->references('carnet')
+                ->on('recepcions')
+                ->onDelete('cascade'); */
 
             $table->timestamps();
         });

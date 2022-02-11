@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductosTable extends Migration
+class CreateVentaDetallesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreateProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('venta_detalles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre')->nullable();
             $table->string('codigo_barra')->nullable();
-            $table->string('marca')->nullable();
-            $table->decimal('precio_costo', 8, 2)->nullable();
-            $table->decimal('precio_venta', 8, 2)->nullable();
+            $table->string('nombre')->nullable();
             $table->bigInteger('cantidad')->nullable();
+            $table->decimal('precio', 8, 2)->nullable();
+            $table->decimal('sub_total', 8, 2)->nullable();
+            $table->unsignedBigInteger('id_venta')->nullable();
 
-            $table->unsignedBigInteger('id_categoria')->nullable();
-
-            $table->foreign('id_categoria')
+            $table->foreign('id_venta')
             ->references('id')
-            ->on('categorias')
+            ->on('ventas')
             ->onDelete('cascade');
 
             $table->timestamps();
@@ -40,6 +38,6 @@ class CreateProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('venta_detalles');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\categoria;
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -35,7 +35,12 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nombre = request('nombre');
+        $categoria->descripcion = request('descripcion');
+        $categoria->save();
+
+        return view('venta.inventario');
     }
 
     /**
@@ -78,8 +83,9 @@ class CategoriaController extends Controller
      * @param  \App\categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(categoria $categoria)
+    public function destroy(categoria $categoria, $id)
     {
-        //
+        Categoria::destroy($id);
+        return redirect('producto');
     }
 }

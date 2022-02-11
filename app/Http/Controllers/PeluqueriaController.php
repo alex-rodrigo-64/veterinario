@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\categoria;
-use App\producto;
+use App\Peluqueria;
+use App\Recepcion;
 use Illuminate\Http\Request;
 
-class ProductoController extends Controller
+class PeluqueriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +25,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $categoria = categoria::all();
-
-        return view('venta.producto.producto',['categoria'=>$categoria]);
+        $recepcion = Recepcion::all();
+        return view('peluqueria.create',['carnet'=>$recepcion]);
     }
 
     /**
@@ -38,29 +37,23 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $producto = new producto();
+        $peluqueria = new Peluqueria();
 
-        $producto->nombre = request('nombre');
-        $producto->codigo_barra = request('codigoBarra');
-        $producto->marca = request('marca');
-        $producto->precio_costo = request('precio_costo');
-        $producto->precio_venta = request('precio_venta');
-        $producto->cantidad = request('cantidad');
-        $producto->id_categoria = $request->get('categoria');
+        $peluqueria->carnet = $request->get('carnetBuscar');
+        $peluqueria->nombrePaciente = request('nombreMascota');
+        $peluqueria->detalleCorte = request('detalleCorte');
+        $peluqueria->total = request('total');
 
-        $producto->save();
-
-        return view('venta.inventario');
-
+        $peluqueria->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\producto  $producto
+     * @param  \App\Peluqueria  $peluqueria
      * @return \Illuminate\Http\Response
      */
-    public function show(producto $producto)
+    public function show(Peluqueria $peluqueria)
     {
         //
     }
@@ -68,10 +61,10 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\producto  $producto
+     * @param  \App\Peluqueria  $peluqueria
      * @return \Illuminate\Http\Response
      */
-    public function edit(producto $producto)
+    public function edit(Peluqueria $peluqueria)
     {
         //
     }
@@ -80,10 +73,10 @@ class ProductoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\producto  $producto
+     * @param  \App\Peluqueria  $peluqueria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, producto $producto)
+    public function update(Request $request, Peluqueria $peluqueria)
     {
         //
     }
@@ -91,10 +84,10 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\producto  $producto
+     * @param  \App\Peluqueria  $peluqueria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(producto $producto)
+    public function destroy(Peluqueria $peluqueria)
     {
         //
     }

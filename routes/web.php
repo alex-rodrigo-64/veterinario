@@ -21,15 +21,23 @@ Auth::routes();
 
 Route::get('/venta','VentaController@index')->middleware('auth');
 Route::get('/create','VentaController@create')->middleware('auth');
+Route::post('/create', 'VentaController@store')->middleware('auth');
 
+//INVENTARIO
 Route::get('/inventario','VentaController@inventario')->middleware('auth');
 
-
-//CATEGORIA
-Route::get('/categoria','CategoriaController@create')->middleware('auth');
+//PELUQUERIA
+Route::get('/peluqueria','PeluqueriaController@create')->middleware('auth');
+Route::post('/peluqueria', 'PeluqueriaController@store')->middleware('auth');
 
 //PRODUCTO
 Route::get('/producto','ProductoController@create')->middleware('auth');
+Route::post('/producto', 'ProductoController@store')->middleware('auth');
+
+//CATEGORIA
+Route::get('/categoria', 'CategoriaController@create')->middleware('auth');
+Route::post('/categoria', 'CategoriaController@store')->middleware('auth');
+Route::delete('/categoria/{id}', 'CategoriaController@destroy')->middleware('auth');
 
 //RECEPCION
 Route::get('/recepcion', 'RecepcionController@index')->middleware('auth');
