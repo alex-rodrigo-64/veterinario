@@ -50,3 +50,5 @@ Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
 Route::get('/historial', 'HistorialController@index')->middleware('auth');
 Route::get('/historial/{ci}/{nombre}', 'HistorialController@show')->middleware('auth');
 Route::get('/historial/{ci}/{nombre}/{fecha}', 'HistorialController@informe')->middleware('auth');
+Route::delete('/historial/{ci}/{nombre}', 'HistorialController@destroy')->middleware('auth');
+Route::delete('/historial/{ci}/{nombre}/{fecha}', 'HistorialController@eliminarFecha')->middleware('auth');

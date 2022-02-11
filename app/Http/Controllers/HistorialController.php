@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Historial;
+use App\Recepcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -110,8 +111,41 @@ class HistorialController extends Controller
      * @param  \App\Historial  $historial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Historial $historial)
+    public function destroy( $ci,$nombre)
     {
-        //
+        $id = DB::table('recepcions')
+                ->select('id')
+                ->where('carnet','=',$ci)
+                ->where('nombrePaciente','=',$nombre)
+                ->first();
+
+        Recepcion::destroy($id->id);
+
+        return redirect('/historial');
     }
+
+    public function eliminarFecha( $ci,$nombre, $fecha)
+    {
+        $id = DB::table('recepcions')
+                ->select('id')
+                ->where('fecha','=',$fecha)
+                ->first();
+
+        Recepcion::destroy($id->id);
+
+        $bandera = DB::table('recepcions')
+                ->select('id')
+                ->where('carnet','=',$ci)
+                ->where('nombrePaciente','=',$nombre)
+                ->exists();
+
+        if ($bandera == true) {
+            return redirect('/historial/'.$ci.'/'.$nombre);
+        }else{
+            return redirect('/historial');
+        }
+
+        
+    }
+
 }

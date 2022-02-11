@@ -43,9 +43,9 @@
                             <td>
                                 <a href="{{ url('/historial/'.$pacientes->carnet.'/'.$pacientes->nombrePaciente) }}" class="btn btn-sm btn-info">Detalles</a>
                                 <button class="btn btn-sm btn-danger" type="submit" data-toggle="modal"
-                                    data-target="#exampleModal{{$pacientes->carnet}}">Eliminar</button>
+                                    data-target="#exampleModal{{$pacientes->carnet}}{{$pacientes->nombrePaciente}}">Eliminar</button>
                                 <!-- modaal -->
-                                <div class="modal fade" id="exampleModal{{$pacientes->carnet}}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="exampleModal{{$pacientes->carnet}}{{$pacientes->nombrePaciente}}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -61,10 +61,10 @@
                                                 </h3>
                                             </div>
                                             <div class="modal-footer">
-                                                <form method="POST" id="idFormDeleteSale" action="{{url('/historial/'.$pacientes->carnet.'/'.$pacientes->nombrePaciente) }}">
+                                                <form method="POST" id="idFormDeleteSale{{$pacientes->carnet}}{{$pacientes->nombrePaciente}}" action="{{url('/historial/'.$pacientes->carnet.'/'.$pacientes->nombrePaciente) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="button" id="idButtDelete" onClick="submitDeleteSale()" disabled class="btn btn-danger float-right">Borrar</button>
+                                                    <button type="button" id="idButtDelete{{$pacientes->carnet}}{{$pacientes->nombrePaciente}}" onclick="submitDeleteSale('{{$pacientes->carnet}}','{{$pacientes->nombrePaciente}}')" class="btn btn-danger float-right">Borrar</button>
                                                 </form>
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Cancelar</button>
@@ -87,7 +87,9 @@
         </div>
         </div>
     <div class="card-footer">
-        
+        <div class="row justify-content-center">
+            <a href="{{ url('/') }}" ><button class="btn btn-primary" type="button">Volver</button></a>
+        </div>
     </div>
 </div>
 
@@ -102,6 +104,13 @@
                 });
               });
             });
+    </script>
+    <script>
+
+        function submitDeleteSale(carnet, nombre){
+            $("#idFormDeleteSale"+carnet+nombre).submit();
+            document.getElementById('idButtDelete'+carnet+nombre).disabled=true;
+        }
     </script>
 
 @endsection

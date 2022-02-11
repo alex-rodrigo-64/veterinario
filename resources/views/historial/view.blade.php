@@ -46,7 +46,9 @@
 
 
     <div class="card-footer">
-        
+        <div class="row justify-content-center">
+            <a href="{{ url('historial/') }}" ><button class="btn btn-primary" type="button">Volver</button></a>
+        </div>
     </div>
 </div>
 

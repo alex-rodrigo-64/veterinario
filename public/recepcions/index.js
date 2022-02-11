@@ -426,6 +426,11 @@ function validarCosto(){
     }
 }
 
+function submitDeleteSale(){
+    $("#idform").submit();
+    document.getElementById('enviar').disabled=true;
+}
+
 function deshabilitar(){
     var x = document.getElementById('enviar');
     x.disabled = true;
