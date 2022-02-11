@@ -28,6 +28,7 @@ Route::get('/inventario','VentaController@inventario')->middleware('auth');
 
 //PELUQUERIA
 Route::get('/peluqueria','PeluqueriaController@create')->middleware('auth');
+Route::post('/peluqueria', 'PeluqueriaController@store')->middleware('auth');
 
 //PRODUCTO
 Route::get('/producto','ProductoController@create')->middleware('auth');

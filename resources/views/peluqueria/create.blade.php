@@ -25,29 +25,20 @@
                 <div class="col-5">
 
                     <label for="carnetBuscar" class="control-label">{{'Introduzca Número de Carnet de Identidad'}}</label>
-                    <select name="id_carnet" id="id_carnet"
-                            class="form-control {{$errors->has('carnet')?'is-invalid':''}}">
-
-                            @foreach()
-                            <option {{old('recepcion') == $recepcion->id_carnet ? "selected" : ""}} value="{{$recepcion->id_carnet}}">
-                                {{$recepcion->carnet}}</option>
-                            @endforeach
+                    <select name="carnetBuscar" id="carnetBuscar"
+                            class="form-control {{$errors->has('recepcion')?'is-invalid':''}}">
+                            
                         </select><span id="estadoSucursal"></span>
-                        {!! $errors->first('carnet','<div class="invalid-feedback">:message</div>') !!} >
+                        {!! $errors->first('recepcion','<div class="invalid-feedback">:message</div>') !!}
     
                 </div>
                 <div class="col-5">
 
                     <label for="nombreMascota" class="control-label">{{'Nombre de Mascota'}}</label>
-                    <select name="id_carnet" id="id_carnet"
-                            class="form-control {{$errors->has('sucursal')?'is-invalid':''}}" >
-
-                            @foreach()
-                            <option {{old('nombrePaciente') == $recepcion->id_carnet ? "selected" : ""}} value="{{$recepcion->id_carnet}}">
-                                {{$recepcion->nombrePaciente}}</option>
-                            @endforeach
+                    <select name="id_carnet" id="id_carnet" class="form-control {{$errors->has('sucursal')?'is-invalid':''}}" >
+                        
                         </select><span id="estadoSucursal"></span>
-                        {!! $errors->first('nombre','<div class="invalid-feedback">:message</div>') !!} >
+                        {!! $errors->first('nombre','<div class="invalid-feedback">:message</div>') !!}
                     
                 </div>
 
@@ -56,7 +47,7 @@
             <div class=" row justify-content-center">
                 <div class="col-5">
 
-                    <label for="nombreCorte" class="control-label">{{'Detalle de Corte'}}</label>
+                    <label for="detalleCorte" class="control-label">{{'Detalle de Corte'}}</label>
                     <textarea class="form-control" autocomplete="off" aria-label="With textarea" 
                         name="detalleCorte" id="detalleCorte" style="resize: none;height: 100%;"></textarea>
                     

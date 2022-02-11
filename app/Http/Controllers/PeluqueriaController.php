@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Peluqueria;
+use App\Recepcion;
 use Illuminate\Http\Request;
 
 class PeluqueriaController extends Controller
@@ -24,7 +25,8 @@ class PeluqueriaController extends Controller
      */
     public function create()
     {
-        return view('peluqueria.create');
+        $recepcion = Recepcion::all();
+        return view('peluqueria.create',['carnet'=>$recepcion]);
     }
 
     /**
@@ -35,7 +37,14 @@ class PeluqueriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $peluqueria = new Peluqueria();
+
+        $peluqueria->carnet = $request->get('carnetBuscar');
+        $peluqueria->nombrePaciente = request('nombreMascota');
+        $peluqueria->detalleCorte = request('detalleCorte');
+        $peluqueria->total = request('total');
+
+        $peluqueria->save();
     }
 
     /**
