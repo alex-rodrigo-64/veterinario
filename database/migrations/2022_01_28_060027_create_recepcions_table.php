@@ -15,7 +15,7 @@ class CreateRecepcionsTable extends Migration
     {
         Schema::create('recepcions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('carnet')->nullable();
+            $table->bigInteger('carnet');
             $table->string('nombrePropietario')->nullable();
             $table->string('telefono')->nullable();
             $table->string('domicilio')->nullable();
@@ -30,7 +30,7 @@ class CreateRecepcionsTable extends Migration
             $table->string('temperatura')->nullable();
             $table->string('heses')->nullable();
             $table->string('mucosas')->nullable();
-            $table->string('deshidratacion')->nullable();
+            $table->string('desidratacion')->nullable();
             $table->string('piel')->nullable();
             $table->string('boca')->nullable();
             $table->string('palpacion')->nullable();

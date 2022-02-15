@@ -26,7 +26,7 @@ class PeluqueriaController extends Controller
     public function create()
     {
         $recepcion = Recepcion::all();
-        return view('peluqueria.create',['carnet'=>$recepcion]);
+        return view('peluqueria.create',['nombrePaciente'=> $recepcion]); 
     }
 
     /**
@@ -40,9 +40,10 @@ class PeluqueriaController extends Controller
         $peluqueria = new Peluqueria();
 
         $peluqueria->carnet = $request->get('carnetBuscar');
-        $peluqueria->nombrePaciente = request('nombreMascota');
         $peluqueria->detalleCorte = request('detalleCorte');
         $peluqueria->total = request('total');
+
+        $peluqueria->id_paciente = $request->get('nombrePaciente');
 
         $peluqueria->save();
     }

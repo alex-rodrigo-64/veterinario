@@ -187,8 +187,7 @@
                 </div>
                 <div class="col-5">
                     <label for="categoria">Categoria</label>
-                    <select name="categoria" id="categoria"
-                        class="form-control" onblur="validarCategoria()">
+                    <select name="categoria" id="categoria" class="form-control" onblur="validarCategoria()">
                         <option selected disabled>Elige una Categoria</option>
                         @foreach ($categoria as $categoria)
                         <option {{ old('categoria') == $categoria->id ? "selected" : "" }} value="{{$categoria->id}}">

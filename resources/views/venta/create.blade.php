@@ -72,7 +72,7 @@
         
     </div>
 </div>
-<a  href="{{ url('/recepcion/create') }}">ss</a>
+<a  href="{{ url('/recepcion/create') }}"></a>
 
 <script>
     function validarFecha(){

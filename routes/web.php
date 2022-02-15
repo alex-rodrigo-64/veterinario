@@ -23,6 +23,7 @@ Route::get('/venta','VentaController@index')->middleware('auth');
 Route::get('/create','VentaController@create')->middleware('auth');
 Route::post('/create', 'VentaController@store')->middleware('auth');
 
+
 //INVENTARIO
 Route::get('/inventario','VentaController@inventario')->middleware('auth');
 

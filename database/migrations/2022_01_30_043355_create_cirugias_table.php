@@ -15,13 +15,13 @@ class CreateCirugiasTable extends Migration
     {
         Schema::create('cirugias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('ci_cliente');
+            /*$table->unsignedBigInteger('ci_cliente');*/
             $table->dateTime('fecha')->nullable();
 
-            /*    $table->foreign('ci_cliente')
+              /* $table->foreign('ci_cliente')
                 ->references('carnet')
                 ->on('recepcions')
-                ->onDelete('cascade'); */
+                ->onDelete('cascade');*/
 
             $table->timestamps();
         });

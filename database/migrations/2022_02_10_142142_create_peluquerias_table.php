@@ -15,14 +15,14 @@ class CreatePeluqueriasTable extends Migration
     {
         Schema::create('peluquerias', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->unsignedBigInteger('carnet')->nullable();
-            $table->string('nombrePaciente')->nullable();
+            $table->string('carnet')->nullable();
             $table->string('detalleCorte')->nullable();
             $table->decimal('total', 8, 2)->nullable();
+            $table->unsignedBigInteger('nombrePaciente')->nullable();
+            
 
-            $table->foreign('carnet')
-            ->references('id_carnet')
+            $table->foreign('id_paciente')
+            ->references('id')
             ->on('recepcions')
             ->onDelete('cascade');
 
