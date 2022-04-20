@@ -14,7 +14,7 @@ class CirugiaController extends Controller
      */
     public function index()
     {
-        //
+        return view('servicios.cirugia.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CirugiaController extends Controller
      */
     public function create()
     {
-        //
+        return view('servicios.cirugia.programar');
     }
 
     /**
@@ -34,8 +34,21 @@ class CirugiaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $cirugia = new Cirugia();
+
+        $cirugia->carnetIdentidad = request('carnet');
+        $cirugia->nombreMascota = request('nombreMascota');
+        $cirugia->detalle = request('detalleCirugia');
+        $cirugia->fecha = request('fecha');
+        $cirugia->total = request('costo');
+        
+        //$cirugia->paciente = request('detalle');
+
+        $cirugia->save();
+        
+
+        return redirect('/cirugia');
     }
 
     /**

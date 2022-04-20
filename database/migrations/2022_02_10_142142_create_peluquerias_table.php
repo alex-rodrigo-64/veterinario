@@ -21,10 +21,10 @@ class CreatePeluqueriasTable extends Migration
             $table->string('detalleCorte')->nullable();
             $table->decimal('total', 8, 2)->nullable();
 
-            $table->foreign('carnet')
+            /*$table->foreign('carnet')
             ->references('id_carnet')
             ->on('recepcions')
-            ->onDelete('cascade');
+            ->onDelete('cascade');*/
 
             
 

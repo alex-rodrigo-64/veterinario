@@ -30,6 +30,7 @@ Route::get('/inventario','VentaController@inventario')->middleware('auth');
 Route::get('/peluqueria','PeluqueriaController@create')->middleware('auth');
 Route::post('/peluqueria', 'PeluqueriaController@store')->middleware('auth');
 
+
 //PRODUCTO
 Route::get('/producto','ProductoController@create')->middleware('auth');
 Route::post('/producto', 'ProductoController@store')->middleware('auth');
@@ -45,6 +46,11 @@ Route::post('/recepcion', 'RecepcionController@store')->middleware('auth');
 
 //SERVICIOS
 Route::get('/servicios', 'HomeController@servicio')->middleware('auth');
+
+//PELUQUERIA
+Route::get('/cirugia','CirugiaController@index')->middleware('auth');
+Route::get('/cirugia/programar', 'CirugiaController@create')->middleware('auth');
+Route::post('/cirugia/programar', 'CirugiaController@store')->middleware('auth');
 
 //HISTORIAL
 Route::get('/historial', 'HistorialController@index')->middleware('auth');

@@ -8,7 +8,7 @@
         <div class="col-lg-6">
           <div class="card">
             <div class="card-body text-center">
-                <a  href="{{ url('/recepcion') }}">
+                <a  href="{{ url('/cirugia') }}">
                     <button class="btn btn-primary btn-lg" style='width:300px; height:100px; background: linear-gradient(100deg, #f7f9fd, rgb(255, 27, 27));'>
                         <b class="text-dark">
                             <FONT SIZE=6>C</font><FONT SIZE=6>I</font><FONT SIZE=6>R</font><FONT SIZE=6>U</font><FONT SIZE=6>G</font><FONT SIZE=6>Í</font><FONT SIZE=6>A</font>
